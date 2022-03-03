@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Truculenta&display=swap');
+
+:root {
+	--dark-color: #171e3d;
+	--light-color: #7688d8;
+	--white-color: #e4e9ff;
+	--success-color: #5cb85c;
+	--place-color: #ef476f;
+	--penumbra-color: #3e509e;
+}
+
+.big-title {
+	font-family: 'Truculenta';
+    font-size: 48px;
+    color: var(--white-color);
+    text-align: center;
+}
+
+.game-guess-box {
+    
+}
+
+body {
+	font-family: 'Truculenta';
+	font-size: 24px;
+	background: var(--dark-color);
+	margin: 20px;
+	max-width: 500px;
+	margin: 80px auto;
+}
