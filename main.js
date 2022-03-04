@@ -1,11 +1,17 @@
+var fs = require("fs");
+fs.readFile("./mytext.txt", function(text){
+    var textByLine = text.split("\n")
+});
+
 var guess = 0;
-var currentLetterGuess = 0;
-const alphabet = 'abcdefghijklmnopqrstuvwxyz'
+var currentGuess = '';
+var currentGuessIndex = 0;
+const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
 function enterLetter(letter,space) { // Input a letter, and it's space
     const box = document.getElementById(`box${guess}-${space}`);
     letter = letter.toUpperCase();
-    console.log(`box${guess}-${space}`);
+    // console.log(`box${guess}-${space}`);
     box.innerHTML = `${letter}`;
 }
 
@@ -26,21 +32,33 @@ function createDivGuess() {
     
 }
 
+function checkGuess() {
+    console.log(currentGuess);
+
+}
+
 function mainGameLoop() {
     
-    document.addEventListener('keydown', function(event) {
-        if(event.key === 'Enter') {
-            alert('Enter was pressed');
+    document.addEventListener('keydown', function(event) { // If the player presses a key
+        if(event.key === 'Enter') { // If the player presses enter, check if the word is a real word, and then reveal colours
+            checkGuess();
         }
-        else if (event.key === 'Backspace') {
-            alert('Backspace was pressed');
+        else if (event.key === 'Backspace') { // If the player presses backspace remove a letter
+            currentGuess = currentGuess.slice(0, currentGuess.length - 1)
+            currentGuessIndex -= 1;
+            enterLetter('',currentGuessIndex);
+            const title = document.getElementById('big-title');
+            title.innerHTML = `<h1>${currentGuess}</h1>`;
         }
-        else if(event.key && (alphabet.indexOf(String(event.key)) != -1) && currentLetterGuess < 7) {
-            enterLetter(event.key,currentLetterGuess);
-            currentLetterGuess += 1;
+        else if(event.key && (alphabet.indexOf(String(event.key)) != -1) && currentGuessIndex < 7) { // If the player presses a key of the alphabet add to guess
+            enterLetter(event.key,currentGuessIndex);
+            currentGuess += String(event.key);
+            currentGuessIndex += 1;
+            const title = document.getElementById('big-title');
+            title.innerHTML = `<h1>${currentGuess}</h1>`;
         }
 
-        if (currentLetterGuess < 7){ // Do Screenshake
+        if (currentGuessIndex < 7){ // Do Screenshake
             
         }
     });
