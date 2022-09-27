@@ -4,8 +4,9 @@
 	--dark-color: #171e3d;
 	--light-color: #7688d8;
 	--white-color: #e4e9ff;
-	--success-color: #5cb85c;
-	--place-color: #ef476f;
+	--correct-color: #5cb85c;
+	--place-color: #efd347;
+	--incorrect-color: #ef476f;
 	--penumbra-color: #3e509e;
 	--penumbra-darker-color: #24316d;
 }
@@ -18,6 +19,11 @@ body {
 	margin: 0px auto;
 }
 
+textarea {
+    margin-top: 15px;
+    width: 50%;
+}
+
 .big-title {
 	font-family: 'Truculenta';
     font-size: 40px;
@@ -25,6 +31,19 @@ body {
     text-align: center;
 	padding: 0px;
 	margin: 0px;
+	margin-bottom: -25px;
+	margin-top: -25px;
+}
+
+.big-title2 {
+	font-family: 'Truculenta';
+    font-size: 40px;
+    color: var(--white-color);
+    text-align: center;
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: -25px;
+	margin-top: -25px;
 }
 
 .game-guess-box {
@@ -38,6 +57,16 @@ body {
 	margin-inline: 2px;
 	padding: 0px;
 	float: left;
+}
+
+.box-correct {
+	background: var(--correct-color);
+}
+.box-place {
+	background: var(--place-color);
+}
+.box-incorrect {
+	background: var(--incorrect-color);
 }
 
 .game-guess-container {
